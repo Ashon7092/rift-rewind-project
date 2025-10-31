@@ -564,3 +564,56 @@ footer {
         font-size: 24px;
     }
 }
+/* ===== 3D Snap Scrolling (Additions) ===== */
+#scroller {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  perspective: 1000px; /* enables depth */
+}
+
+/* Full-viewport sections */
+.panel {
+  min-height: 100vh;
+  scroll-snap-align: center;            /* center on stop */
+  display: grid;
+  place-items: center;
+  padding: 6vh 20px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  transition: transform 500ms cubic-bezier(.2,.8,.2,1), opacity 350ms ease;
+  opacity: 0.9;
+  /* start slightly receded; active panel will pop forward */
+  transform: translateZ(-60px) scale(.98);
+}
+
+/* Remove legacy spacing when panelized */
+.panel.hero,
+.panel.fun-facts,
+.panel.aws-journey,
+.panel.contact-form,
+.panel.league-lookup {
+  margin: 0 !important;
+}
+
+/* Active centered panel */
+.panel.is-center {
+  opacity: 1;
+  transform: translateZ(0) scale(1);
+  filter: saturate(1.02);
+}
+
+/* Optional: slightly different backdrop per section for depth */
+.panel:nth-of-type(odd)  { background: rgba(248, 250, 252, 0.4); }
+.panel:nth-of-type(even) { background: rgba(255, 255, 255, 0.2); }
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  #scroller { scroll-behavior: auto; }
+  .panel, .panel.is-center {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

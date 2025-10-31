@@ -14,6 +14,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+  <main id="scroller">
+  <section class="panel hero"> ... </section>
+  <section id="facts" class="panel"> ... </section>
+  <section id="aws-journey" class="panel"> ... </section>
+  <section id="contact" class="panel"> ... </section>
+  <section id="league" class="panel"> ... </section>
+</main>
+
   
   <!-- You can move these styles into styles.css if you prefer. Kept inline for a self-contained page. -->
   <style>
@@ -79,9 +87,9 @@
     </nav>
   </header>
 
-  <main>
+  <main id="scroller">
     <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero panel" aria-labelledby="hero-title">
       <img src="profile-photo.svg" alt="Portrait of Milton Skye Ashton Murray" class="profile-photo" width="120" height="120">
       <div>
         <h1 id="hero-title">Milton Skye Ashton Murray</h1>
@@ -91,7 +99,7 @@
     </section>
 
     <!-- FUN FACTS -->
-    <section id="facts" class="section">
+    <section id="facts" class="panel"> 
       <h3>Fun Facts About Me</h3>
       <div class="grid facts-grid">
         <article class="fact-card">
@@ -108,9 +116,8 @@
         </article>
       </div>
     </section>
-
     <!-- AWS JOURNEY -->
-    <section id="aws-journey" class="section two-col">
+    <section id="aws-journey" class="panel">
       <div class="card">
         <h3>AWS Builder Challenge #2</h3>
         <p>I’m learning to deploy websites using AWS S3 and CloudFront. This site is part of my challenge progress.</p>
@@ -127,7 +134,7 @@
     </section>
 
     <!-- CONTACT FORM -->
-    <section id="contact" class="section two-col">
+    <section id="contact" class="panel">
       <div class="card">
         <h3>Get In Touch</h3>
         <p>Have a question or want to connect? Send me a message!</p>
@@ -162,7 +169,7 @@
         </ul>
       </div>
     </section>
-    <section id="rift-rewind" class="section card">
+    <section id="league" class="panel">
   <h2>Rift Rewind — League of Legends Data Lookup</h2>
   <p>
     <strong>Hackathon Project — Riot Games x AWS (Rift Rewind 2025)</strong>
@@ -186,7 +193,6 @@
     <a href="https://github.com/Ashton7092/rift-rewind-project" class="btn" target="_blank" rel="noreferrer">View Code on GitHub</a>
   </p>
 </section>
-
     <!-- LEAGUE DATA LOOKUP -->
     <section id="league" class="section card" aria-labelledby="league-title">
       <h3 id="league-title">League Data Lookup</h3>
