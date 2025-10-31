@@ -1,352 +1,298 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milton Skye Ashton Murray - Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Milton Skye Ashton Murray — Portfolio</title>
+  <meta name="description" content="Cloud builder & AWS enthusiast. Projects, challenges, and contact." />
+  <meta property="og:title" content="Milton Skye Ashton Murray — Portfolio" />
+  <meta property="og:description" content="Cloud builder & AWS enthusiast. Projects, challenges, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/og-image.png" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+  
+  <!-- You can move these styles into styles.css if you prefer. Kept inline for a self-contained page. -->
+  <style>
+    :root{--bg:#0b0d10; --panel:#11151a; --text:#e9edf1; --muted:#a7b0ba; --brand:#5cc8ff; --accent:#9bffd1; --ring:rgba(92,200,255,.35)}
+    @media (prefers-color-scheme: light){:root{--bg:#f7f9fb; --panel:#ffffff; --text:#0b0d10; --muted:#4c5560; --brand:#0066ff; --accent:#00b37a; --ring:rgba(0,102,255,.18)}}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); line-height:1.6}
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%; height:auto; display:block}
+    header, main, footer{max-width:1100px; margin:0 auto; padding:24px}
+    header{position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:16px; background:color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter:saturate(1.2) blur(8px); border-bottom:1px solid color-mix(in oklab, var(--text) 12%, transparent)}
+    nav a{margin:0 10px; font-weight:600}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:14px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 96%, transparent), color-mix(in oklab, var(--panel) 90%, transparent)); color:var(--text)}
+    .btn:hover{box-shadow:0 0 0 3px var(--ring)}
+    .hero{display:grid; grid-template-columns:120px 1fr; gap:20px; align-items:center; padding:36px 0}
+    .profile-photo{width:120px; height:120px; border-radius:22px; border:1px solid color-mix(in oklab, var(--text) 14%, transparent); background:var(--panel); object-fit:cover}
+    h1{margin:0; font-size:40px; line-height:1.1}
+    .tagline{color:var(--muted); margin:6px 0 10px}
+    .section{padding:24px 0}
+    .card{background:linear-gradient(180deg, color-mix(in oklab, var(--panel) 94%, transparent), color-mix(in oklab, var(--panel) 86%, transparent)); border:1px solid color-mix(in oklab, var(--text) 14%, transparent); border-radius:20px; padding:20px}
+    .grid{display:grid; gap:16px}
+    .facts-grid{grid-template-columns:repeat(3, 1fr)}
+    .fact-card{border:1px solid color-mix(in oklab, var(--text) 14%, transparent); border-radius:16px; padding:16px; background:var(--panel)}
+    .cta-button{display:inline-block; margin-top:10px}
+    .two-col{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+    .form-group{margin:8px 0}
+    input, textarea, select{width:100%; padding:10px; border-radius:12px; border:1px solid color-mix(in oklab, var(--text) 16%, transparent); background:var(--panel); color:var(--text)}
+    .contact-submit-btn, .lookup-submit-btn{margin-top:8px}
+    .form-message, .lookup-message{margin-top:8px; font-size:14px}
+    .success{color:#39d98a}
+    .error{color:#ff6b6b}
+    .summoner-results{margin-top:12px}
+    .champions-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px}
+    .champion-card, .summoner-card{border:1px solid color-mix(in oklab, var(--text) 14%, transparent); border-radius:12px; padding:12px; background:var(--panel)}
+    footer{padding:40px 24px; text-align:center; color:var(--muted)}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+    @media (max-width: 900px){.facts-grid{grid-template-columns:1fr 1fr}.two-col{grid-template-columns:1fr}.champions-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width: 540px){.hero{grid-template-columns:1fr; text-align:center}.profile-photo{margin:0 auto}}
+    :focus-visible{outline:3px solid var(--brand); outline-offset:3px; border-radius:8px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Milton Skye Ashton Murray",
+    "url": "https://your-domain.com",
+    "sameAs": ["https://github.com/yourhandle", "https://builder.aws.com/community/@ashton7092"],
+    "jobTitle": "Student / Cloud Builder"
+  }
+  </script>
 </head>
 <body>
-    <main>
-        <section class="hero">
-            <img src="profile-photo.svg" alt="Milton Skye Ashton Murray" class="profile-photo">
-            <h1>Milton Skye Ashton Murray</h1>
-            <p class="tagline">Cloud Builder & AWS Enthusiast</p>
-            <a href="https://builder.aws.com/community/@ashton7092" target="_blank" class="aws-link">AWS Builder Center Profile</a>
-        </section>
+  <header>
+    <strong>Milton Skye Ashton Murray</strong>
+    <nav aria-label="Primary">
+      <a href="#facts">Fun Facts</a>
+      <a href="#aws-journey">AWS Challenge</a>
+      <a href="#contact">Contact</a>
+      <a href="#league">League Lookup</a>
+    </nav>
+  </header>
 
-        <section class="fun-facts">
-            <h3>Fun Facts About Me</h3>
-            <div class="facts-grid">
-                <div class="fact-card">
-                    <h4>🚀 Challenge In Progress</h4>
-                    <p>Currently working on <a href="https://builder.aws.com/content/31C2WxIDSQive7q2Dv5xNFCmYJj/aws-builder-challenge-2-build-a-website-on-the-cloud?trk=86c76c09-e8f4-4138-badc-604ce7bc5d77&sc_channel=el" target="_blank">AWS Builder Challenge #2: Build a website on the cloud!</a></p>
-                </div>
-                <div class="fact-card">
-                    <h4>🎯 Learning Goal</h4>
-                    <p>Building my skills one AWS service at a time - S3, CloudFront, and beyond!</p>
-                </div>
-                <div class="fact-card">
-                    <h4>💡 Hobby </h4>
-                    <p>Black Belt - First Dan in Shotokan Karate previously national athlete for Trinidad & Tobago 🇹🇹 boys u15</p>
-                </div>
-            </div>
-        </section>
+  <main>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <img src="profile-photo.svg" alt="Portrait of Milton Skye Ashton Murray" class="profile-photo" width="120" height="120">
+      <div>
+        <h1 id="hero-title">Milton Skye Ashton Murray</h1>
+        <p class="tagline">Cloud Builder & AWS Enthusiast</p>
+        <a class="btn" href="https://builder.aws.com/community/@ashton7092" target="_blank" rel="noreferrer">AWS Builder Center Profile</a>
+      </div>
+    </section>
 
-        <section class="aws-journey">
-            <h3>AWS Builder Challenge #2</h3>
-            <p>I'm currently working on the "Build a website on the cloud" challenge, learning to deploy websites using AWS S3 and CloudFront. This site is part of my challenge progress!</p>
-            <a href="https://builder.aws.com/content/31C2WxIDSQive7q2Dv5xNFCmYJj/aws-builder-challenge-2-build-a-website-on-the-cloud?trk=86c76c09-e8f4-4138-badc-604ce7bc5d77&sc_channel=el" target="_blank" class="cta-button">View Challenge Details</a>
-        </section>
+    <!-- FUN FACTS -->
+    <section id="facts" class="section">
+      <h3>Fun Facts About Me</h3>
+      <div class="grid facts-grid">
+        <article class="fact-card">
+          <h4>🚀 Challenge In Progress</h4>
+          <p>Currently working on <a href="https://builder.aws.com/content/31C2WxIDSQive7q2Dv5xNFCmYJj/aws-builder-challenge-2-build-a-website-on-the-cloud?trk=86c76c09-e8f4-4138-badc-604ce7bc5d77&sc_channel=el" target="_blank" rel="noreferrer">AWS Builder Challenge #2: Build a website on the cloud</a>.</p>
+        </article>
+        <article class="fact-card">
+          <h4>🎯 Learning Goal</h4>
+          <p>Building my skills one AWS service at a time — S3, CloudFront, and beyond!</p>
+        </article>
+        <article class="fact-card">
+          <h4>💡 Hobby</h4>
+          <p>Black Belt (First Dan) in Shotokan Karate; former Trinidad & Tobago 🇹🇹 U15 national athlete.</p>
+        </article>
+      </div>
+    </section>
 
-        <!-- CONTACT FORM SECTION - Added for user contact functionality -->
-        <section class="contact-form">
-            <h3>Get In Touch</h3>
-            <p>Have a question or want to connect? Send me a message!</p>
-            <!-- Form message container for success/error messages -->
-            <div id="form-message" class="form-message" style="display: none;"></div>
-            <form class="contact-form-container">
-                <!-- Contact form input fields -->
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <!-- Contact form submit button -->
-                <button type="submit" class="contact-submit-btn">Send Message</button>
-            </form>
-        </section>
-        <!-- END CONTACT FORM SECTION -->
-         <!-- LEAGUE DATA LOOKUP SECTION -->
-<section class="league-lookup">
-    <h3>League Data Lookup</h3>
-    <p>Enter a Riot ID to see their level and top champions!</p>
-    
-    <!-- Lookup message container for success/error messages -->
-    <div id="lookup-message" class="lookup-message" style="display: none;"></div>
-    
-    <div class="lookup-form-container">
-        <!-- Riot ID lookup form -->
+    <!-- AWS JOURNEY -->
+    <section id="aws-journey" class="section two-col">
+      <div class="card">
+        <h3>AWS Builder Challenge #2</h3>
+        <p>I’m learning to deploy websites using AWS S3 and CloudFront. This site is part of my challenge progress.</p>
+        <a class="cta-button btn" href="https://builder.aws.com/content/31C2WxIDSQive7q2Dv5xNFCmYJj/aws-builder-challenge-2-build-a-website-on-the-cloud?trk=86c76c09-e8f4-4138-badc-604ce7bc5d77&sc_channel=el" target="_blank" rel="noreferrer">View Challenge Details</a>
+      </div>
+      <div class="card">
+        <h3>Deploy details</h3>
+        <ul>
+          <li>Static hosting on <strong>S3</strong>, served via <strong>CloudFront</strong>.</li>
+          <li>HTTPS with ACM; DNS via Route 53 (optional).</li>
+          <li>GitHub Actions for CI/CD (optional).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="section two-col">
+      <div class="card">
+        <h3>Get In Touch</h3>
+        <p>Have a question or want to connect? Send me a message!</p>
+        <div id="form-message" class="form-message" role="status" aria-live="polite" style="display:none"></div>
+        <!-- Replace CONTACT_API_URL below or set form action to your API Gateway endpoint -->
+        <form id="contact-form" class="contact-form-container" novalidate>
+          <div class="sr-only" aria-hidden="true">
+            <!-- Honeypot field to deter bots -->
+            <label>Keep this field blank<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn contact-submit-btn">Send Message</button>
+        </form>
+      </div>
+      <div class="card">
+        <h3>Notes</h3>
+        <ul>
+          <li>Ensure CORS is enabled on your API (allow POST from your domain).</li>
+          <li>Use AWS SES for email delivery from Lambda.</li>
+          <li>Rate-limit/validate on the server; captcha optional.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LEAGUE DATA LOOKUP -->
+    <section id="league" class="section card" aria-labelledby="league-title">
+      <h3 id="league-title">League Data Lookup</h3>
+      <p>Enter a Riot ID to see their level and top champions.</p>
+      <div id="lookup-message" class="lookup-message" role="status" aria-live="polite" style="display:none"></div>
+      <div class="lookup-form-container">
         <div class="form-group">
-            <label for="summoner-name">Riot ID</label>
-            <input type="text" id="summoner-name" name="summoner-name" placeholder="GameName#TAG (e.g., Hide on bush#KR1)" required>
-            <small style="color: #687078; display: block; margin-top: 4px;">Format: GameName#TAG</small>
+          <label for="summoner-name">Riot ID</label>
+          <input type="text" id="summoner-name" name="summoner-name" placeholder="GameName#TAG (e.g., Hide on bush#KR1)" required>
+          <small style="color:var(--muted); display:block; margin-top:4px">Format: GameName#TAG</small>
         </div>
         <div class="form-group">
-            <label for="region">Region</label>
-            <select id="region" name="region">
-                <option value="na1">North America</option>
-                <option value="euw1">Europe West</option>
-                <option value="eun1">Europe Nordic & East</option>
-                <option value="kr">Korea</option>
-                <option value="br1">Brazil</option>
-                <option value="la1">Latin America North</option>
-                <option value="la2">Latin America South</option>
-                <option value="oc1">Oceania</option>
-                <option value="tr1">Turkey</option>
-                <option value="ru">Russia</option>
-                <option value="jp1">Japan</option>
-            </select>
+          <label for="region">Region</label>
+          <select id="region" name="region">
+            <option value="na1">North America</option>
+            <option value="euw1">Europe West</option>
+            <option value="eun1">Europe Nordic & East</option>
+            <option value="kr">Korea</option>
+            <option value="br1">Brazil</option>
+            <option value="la1">Latin America North</option>
+            <option value="la2">Latin America South</option>
+            <option value="oc1">Oceania</option>
+            <option value="tr1">Turkey</option>
+            <option value="ru">Russia</option>
+            <option value="jp1">Japan</option>
+          </select>
         </div>
-        <!-- Lookup submit button -->
-        <button type="button" id="lookup-btn" class="lookup-submit-btn">Look Up Summoner</button>
-    </div>
-
-    <!-- Results display area -->
-    <div id="summoner-results" class="summoner-results" style="display: none;">
+        <button type="button" id="lookup-btn" class="btn lookup-submit-btn">Look Up Summoner</button>
+      </div>
+      <div id="summoner-results" class="summoner-results" style="display:none">
         <h4>Summoner Info</h4>
         <div id="summoner-info"></div>
-        <div id="champion-mastery"></div>
-    </div>
-</section>
-<!-- END LEAGUE DATA LOOKUP SECTION -->
-    </main>
+        <div id="champion-mastery" style="margin-top:10px"></div>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Milton Skye Ashton Murray. Built on AWS</p>
-    </footer>
-    
-    <!-- Contact form JavaScript -->
-    <script src="script.js"></script>
-    <script>
-    // League Data Lookup - Calls Riot API via Lambda
-    const RIOT_API_URL = 'https://mdanj2dbzaarv4pxjlr7drlhhu0squuz.lambda-url.us-east-2.on.aws/' ; // Replace with your Function URL
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const lookupBtn = document.getElementById('lookup-btn');
-        const summonerNameInput = document.getElementById('summoner-name');
-        const regionSelect = document.getElementById('region');
-        
-        lookupBtn.addEventListener('click', async function() {
-            const summonerName = summonerNameInput.value.trim();
-            const region = regionSelect.value;
-            const messageDiv = document.getElementById('lookup-message');
-            const resultsDiv = document.getElementById('summoner-results');
-            
-            if (!summonerName) {
-                showMessage('Please enter a Riot ID', 'error');
-                return;
-            }
-            
-            if (!summonerName.includes('#')) {
-                showMessage('Please use Riot ID format: GameName#TAG', 'error');
-                return;
-            }
-            
-            // Show loading state
-            lookupBtn.textContent = 'Looking up...';
-            lookupBtn.disabled = true;
-            messageDiv.style.display = 'none';
-            resultsDiv.style.display = 'none';
-            
-            try {
-                const response = await fetch(RIOT_API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        summonerName: summonerName,
-                        region: region
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    displaySummonerData(data);
-                    showMessage('Summoner found!', 'success');
-                } else {
-                    showMessage(data.error || 'Failed to fetch summoner data', 'error');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('Network error. Please try again.', 'error');
-            }
-            
-            // Reset button
-            lookupBtn.textContent = 'Look Up Summoner';
-            lookupBtn.disabled = false;
+  <footer>
+    <p>© <span id="year"></span> Milton Skye Ashton Murray. Built on AWS.</p>
+  </footer>
+
+  <script>
+    // ===== CONFIG (replace as needed) =====
+    const CONTACT_API_URL = ""; // e.g., https://abc123.execute-api.us-east-1.amazonaws.com/prod/contact
+    const RIOT_API_URL = "https://mdanj2dbzaarv4pxjlr7drlhhu0squuz.lambda-url.us-east-2.on.aws/"; // your Function URL
+
+    // ===== UTIL =====
+    const byId = (id) => document.getElementById(id);
+    const show = (el) => el.style.display = '';
+    const hide = (el) => el.style.display = 'none';
+    const setMessage = (el, text, type) => { el.textContent = text; el.className = `${el.className.split(' ')[0]} ${type}`; show(el); };
+
+    // Year
+    byId('year').textContent = new Date().getFullYear();
+
+    // ===== CONTACT FORM =====
+    const contactForm = byId('contact-form');
+    const formMsg = byId('form-message');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(contactForm);
+      // honeypot
+      if (fd.get('company')) return; 
+      if (!CONTACT_API_URL){ setMessage(formMsg, 'Contact API not configured yet. Email me instead.', 'error'); return; }
+      setMessage(formMsg, 'Sending…', '');
+      try {
+        const res = await fetch(CONTACT_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: fd.get('name'), email: fd.get('email'), message: fd.get('message') })
         });
-        
-        // Enter key support
-        summonerNameInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                lookupBtn.click();
-            }
-        });
+        const data = await res.json().catch(()=>({}));
+        if (!res.ok) throw new Error(data.error || 'Request failed');
+        setMessage(formMsg, 'Thanks! I\'ll get back to you soon.', 'success');
+        contactForm.reset();
+      } catch (err){
+        console.error(err);
+        setMessage(formMsg, 'Something went wrong. Please try again or email me directly.', 'error');
+      }
     });
-    
-    function displaySummonerData(data) {
-        const resultsDiv = document.getElementById('summoner-results');
-        const summonerInfo = document.getElementById('summoner-info');
-        const championMastery = document.getElementById('champion-mastery');
-        
-        // Display summoner info
-        summonerInfo.innerHTML = `
-            <div class="summoner-card">
-                <h5>${data.summoner.name}</h5>
-                <p>Level: ${data.summoner.level}</p>
-            </div>
-        `;
-        
-        // Display top champions
-        if (data.topChampions && data.topChampions.length > 0) {
-            const championsHtml = data.topChampions.map(champ => `
-                <div class="champion-card">
-                    <p><strong>Champion ID:</strong> ${champ.championId}</p>
-                    <p><strong>Mastery Level:</strong> ${champ.championLevel}</p>
-                    <p><strong>Mastery Points:</strong> ${champ.championPoints.toLocaleString()}</p>
-                </div>
-            `).join('');
-            
-            championMastery.innerHTML = `
-                <h5>Top Champions</h5>
-                <div class="champions-grid">
-                    ${championsHtml}
-                </div>
-            `;
+
+    // ===== LEAGUE LOOKUP =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const lookupBtn = byId('lookup-btn');
+      const nameInput = byId('summoner-name');
+      const regionSelect = byId('region');
+      const msg = byId('lookup-message');
+      const results = byId('summoner-results');
+      const info = byId('summoner-info');
+      const mastery = byId('champion-mastery');
+
+      const resetBtn = () => { lookupBtn.textContent = 'Look Up Summoner'; lookupBtn.disabled = false; };
+
+      const displayData = (data) => {
+        info.innerHTML = `<div class="summoner-card"><h5>${data.summoner.name}</h5><p>Level: ${data.summoner.level}</p></div>`;
+        if (Array.isArray(data.topChampions) && data.topChampions.length){
+          mastery.innerHTML = `<h5>Top Champions</h5><div class="champions-grid">${data.topChampions.map(ch => `
+            <div class=\"champion-card\">\n              <p><strong>Champion ID:</strong> ${ch.championId}</p>\n              <p><strong>Mastery Level:</strong> ${ch.championLevel}</p>\n              <p><strong>Mastery Points:</strong> ${Number(ch.championPoints).toLocaleString()}</p>\n            </div>`).join('')}</div>`;
         } else {
-            championMastery.innerHTML = '<p>No champion mastery data found.</p>';
+          mastery.innerHTML = '<p>No champion mastery data found.</p>';
         }
-        
-        resultsDiv.style.display = 'block';
-    }
-    
-    function showMessage(text, type) {
-        const messageDiv = document.getElementById('lookup-message');
-        messageDiv.textContent = text;
-        messageDiv.className = `lookup-message ${type}`;
-        messageDiv.style.display = 'block';
-        
-        // Auto-hide after 10 seconds
-        setTimeout(() => {
-            messageDiv.style.display = 'none';
-        }, 10000);
-    }
-</script>
-    // League Data Lookup - Calls Riot API via Lambda
-    const RIOT_API_URL = 'https://mdanj2dbzaarv4pxjlr7drlhhu0squuz.lambda-url.us-east-2.on.aws/'; // Replace with your Function URL
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        const lookupBtn = document.getElementById('lookup-btn');
-        const summonerNameInput = document.getElementById('summoner-name');
-        const regionSelect = document.getElementById('region');
-        
-        lookupBtn.addEventListener('click', async function() {
-            const summonerName = summonerNameInput.value.trim();
-            const region = regionSelect.value;
-            const messageDiv = document.getElementById('lookup-message');
-            const resultsDiv = document.getElementById('summoner-results');
-            
-            if (!summonerName) {
-                showMessage('Please enter a Riot ID', 'error');
-                return;
-            }
-            
-            if (!summonerName.includes('#')) {
-                showMessage('Please use Riot ID format: GameName#TAG', 'error');
-                return;
-            }
-            
-            // Show loading state
-            lookupBtn.textContent = 'Looking up...';
-            lookupBtn.disabled = true;
-            messageDiv.style.display = 'none';
-            resultsDiv.style.display = 'none';
-            
-            try {
-                const response = await fetch(RIOT_API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        summonerName: summonerName,
-                        region: region
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    displaySummonerData(data);
-                    showMessage('Summoner found!', 'success');
-                } else {
-                    showMessage(data.error || 'Failed to fetch summoner data', 'error');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showMessage('Network error. Please try again.', 'error');
-            }
-            
-            // Reset button
-            lookupBtn.textContent = 'Look Up Summoner';
-            lookupBtn.disabled = false;
-        });
-        
-        // Enter key support
-        summonerNameInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                lookupBtn.click();
-            }
-        });
+        show(results);
+      };
+
+      lookupBtn.addEventListener('click', async () => {
+        const raw = nameInput.value.trim();
+        const region = regionSelect.value;
+        hide(results);
+        if (!raw){ return setMessage(msg, 'Please enter a Riot ID', 'error'); }
+        if (!raw.includes('#')){ return setMessage(msg, 'Use Riot ID format: GameName#TAG', 'error'); }
+        lookupBtn.textContent = 'Looking up…';
+        lookupBtn.disabled = true;
+        hide(msg);
+        try{
+          const res = await fetch(RIOT_API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ summonerName: raw, region }) });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'Failed to fetch summoner data');
+          displayData(data);
+          setMessage(msg, 'Summoner found!', 'success');
+        }catch(err){
+          console.error(err);
+          setMessage(msg, err.message || 'Network error. Please try again.', 'error');
+        }finally{ resetBtn(); }
+      });
+
+      // Enter key support
+      nameInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') lookupBtn.click(); });
     });
-    
-    function displaySummonerData(data) {
-        const resultsDiv = document.getElementById('summoner-results');
-        const summonerInfo = document.getElementById('summoner-info');
-        const championMastery = document.getElementById('champion-mastery');
-        
-        // Display summoner info
-        summonerInfo.innerHTML = `
-            <div class="summoner-card">
-                <h5>${data.summoner.name}</h5>
-                <p>Level: ${data.summoner.level}</p>
-            </div>
-        `;
-        
-        // Display top champions
-        if (data.topChampions && data.topChampions.length > 0) {
-            const championsHtml = data.topChampions.map(champ => `
-                <div class="champion-card">
-                    <p><strong>Champion ID:</strong> ${champ.championId}</p>
-                    <p><strong>Mastery Level:</strong> ${champ.championLevel}</p>
-                    <p><strong>Mastery Points:</strong> ${champ.championPoints.toLocaleString()}</p>
-                </div>
-            `).join('');
-            
-            championMastery.innerHTML = `
-                <h5>Top Champions</h5>
-                <div class="champions-grid">
-                    ${championsHtml}
-                </div>
-            `;
-        } else {
-            championMastery.innerHTML = '<p>No champion mastery data found.</p>';
-        }
-        
-        resultsDiv.style.display = 'block';
-    }
-    
-    function showMessage(text, type) {
-        const messageDiv = document.getElementById('lookup-message');
-        messageDiv.textContent = text;
-        messageDiv.className = `lookup-message ${type}`;
-        messageDiv.style.display = 'block';
-        
-        // Auto-hide after 10 seconds
-        setTimeout(() => {
-            messageDiv.style.display = 'none';
-        }, 10000);
-    }
-</script>
+  </script>
 </body>
 </html>
+
